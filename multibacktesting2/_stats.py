@@ -178,6 +178,7 @@ def compute_multiple_stats(
 
         # 获取去重后的索引
         index = ohlc_data_unique_computed.index
+        # print(equity)
         # print(index)
 
         dd = 1 - equity / np.maximum.accumulate(equity)
@@ -186,6 +187,7 @@ def compute_multiple_stats(
 
         equity_df = pd.DataFrame({
             'Equity': equity,
+            'Date': index,
             'DrawdownPct': dd,
             'DrawdownDuration': dd_dur},
             index=index)
